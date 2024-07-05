@@ -1,0 +1,16 @@
+.MainPage {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(118.27deg, rgb(21, 24, 53) -1.396%,rgb(60, 70, 155) 72.911%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mainPage {
+    &__container {
+        width: 90%;
+        height: 100%;
+    }
+}
