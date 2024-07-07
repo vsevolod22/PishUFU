@@ -1,0 +1,115 @@
+
+
+.Header {
+    height: 85px;
+    width: 100%;
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.header {
+
+    &_logo {
+
+        &__container {
+            width: 340px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__pish {
+            height: 55px;
+            width: 190px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__ufu {
+            width: 85px;
+            height: 85px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+    }
+    &_nav {
+        width: 560px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 75px;
+        &__link {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-family: Play;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0%;
+            text-align: center;
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 3px; /* Регулируйте значение для нужной позиции */
+                text-decoration-thickness: 1.5px; /* Регулируйте толщину подчеркивания */
+            }
+        }
+
+        &__container {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+    &_btn {
+
+        position: relative; /* Добавлено для использования псевдоэлемента */
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4.78px;
+        width: 240px;
+        height: 48px;
+        box-shadow: 4.08px 6.12px 20.39px 0px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(7.65px);
+        /* кнопка */
+        background: linear-gradient(179.41deg, rgb(63, 204, 113) 4.013%,rgb(63, 54, 233) 160.587%);
+        overflow: hidden; /* Добавлено для ограничения видимости псевдоэлемента */
+
+
+        &__text {
+            color: rgb(255, 255, 255);
+            font-family: Play;
+            font-size: 24.47px;
+            font-weight: 400;
+            line-height: 28px;
+            text-align: left;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            //background: rgba(255, 255, 255, 0.1); /* Полупрозрачный черный цвет */
+
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1; /* Псевдоэлемент должен быть ниже текста */
+        }
+
+        &:hover::after {
+            opacity: 0; /* Показать полупрозрачный черный цвет при наведении */
+        }
+        &:hover {
+            background: linear-gradient(0deg,rgb(63, 204, 113)  4.013%,  rgb(63, 54, 233) 160.587%);
+            cursor: pointer;
+        }
+    }
+}

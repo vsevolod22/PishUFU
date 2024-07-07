@@ -39,6 +39,9 @@
       ],
       "@Header/*": [
         "src/widgets/Header/*"
+      ],
+      "@DirectionCard/*": [
+        "src/widgets/DirectionCard/*"
       ]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют

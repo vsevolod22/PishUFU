@@ -1,0 +1,30 @@
+.AreasOfTraining {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 115px;
+    position: relative;
+}
+
+
+.areasOfTraining {
+    &_title {
+        color: rgb(255, 255, 255);
+        font-family: Furore;
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 92px;
+        letter-spacing: 0%;
+        text-align: left;
+        text-transform: uppercase;
+
+        &__container {
+            width: 100%;
+        }
+    }
+
+
+}
