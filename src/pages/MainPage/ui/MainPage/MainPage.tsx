@@ -7,6 +7,7 @@ import OurName from "pages/MainPage/ui/OurName/OurName";
 import AboutUs from "pages/MainPage/ui/AboutUs/AboutUs";
 import WhyUs from "pages/MainPage/ui/WhyUs/WhyUs";
 import AreasOfTraining from "pages/MainPage/ui/AreasOfTraining/AreasOfTraining";
+import Events from "pages/MainPage/ui/ Events/Events.tsx";
 
 
 interface MainPageProps {
@@ -25,6 +26,7 @@ const MainPage = ({className} : MainPageProps) => {
                     <AboutUs/>
                     <WhyUs/>
                     <AreasOfTraining/>
+                    <Events/>
                 </main>
 
            </div>

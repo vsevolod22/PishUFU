@@ -42,6 +42,24 @@
       ],
       "@DirectionCard/*": [
         "src/widgets/DirectionCard/*"
+      ],
+      "app/*": [
+        "src/app/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "shared/*": [
+        "src/shared/*"
+      ],
+      "widgets/*": [
+        "src/widgets/*"
+      ],
+      "/*": [
+        "src/*"
+      ],
+      "fonts/*": [
+        "src/app/fonts/*"
       ]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
