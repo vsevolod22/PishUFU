@@ -48,7 +48,7 @@ const AreasOfTraining = ({className} : AreasOfTrainingProps) => {
         }
     }, [titleButton])
     return (
-        <section className={classNames(styles.AreasOfTraining, {}, [className])}>
+        <section className={classNames(styles.AreasOfTraining, {}, [className])} id='areasOfTraining'>
             <div className={styles.areasOfTraining_title__container}>
                 <h2 className={styles.areasOfTraining_title}>Направления подготовки</h2>
             </div>

@@ -20,8 +20,8 @@ const Header = ({className} : HeaderProps) => {
 
             <div className={styles.header_nav__container}>
                 <nav className={styles.header_nav}>
-                    <a href='#' className={styles.header_nav__link}>Направления подготовки</a>
-                    <a href='#' className={styles.header_nav__link}>Мероприятия</a>
+                    <a href='#areasOfTraining' className={styles.header_nav__link}>Направления подготовки</a>
+                    <a href='#events' className={styles.header_nav__link}>Мероприятия</a>
                     <a href='#' className={styles.header_nav__link}>Контакты</a>
                 </nav>
                 <button className={classNames(styles.header_btn, {}, [className, styles.header_btn__text])}>Абитуриентам</button>

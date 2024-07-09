@@ -7,7 +7,9 @@ import OurName from "pages/MainPage/ui/OurName/OurName";
 import AboutUs from "pages/MainPage/ui/AboutUs/AboutUs";
 import WhyUs from "pages/MainPage/ui/WhyUs/WhyUs";
 import AreasOfTraining from "pages/MainPage/ui/AreasOfTraining/AreasOfTraining";
-import Events from "pages/MainPage/ui/ Events/Events.tsx";
+import Events from "pages/MainPage/ui/ Events/Events";
+import News from "pages/MainPage/ui/News/News";
+import Competitions from "pages/MainPage/ui/Competitions/Competitions";
 
 
 interface MainPageProps {
@@ -27,6 +29,8 @@ const MainPage = ({className} : MainPageProps) => {
                     <WhyUs/>
                     <AreasOfTraining/>
                     <Events/>
+                    <News/>
+                    <Competitions/>
                 </main>
 
            </div>
