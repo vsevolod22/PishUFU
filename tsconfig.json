@@ -60,6 +60,9 @@
       ],
       "fonts/*": [
         "src/app/fonts/*"
+      ],
+      "@Footer/*": [
+        "src/widgets/Footer/*"
       ]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют

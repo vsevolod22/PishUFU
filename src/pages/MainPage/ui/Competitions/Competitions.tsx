@@ -14,7 +14,7 @@ const Competitions = ({className} : CompetitionsProps) => {
     return (
         <section className={classNames(styles.Competitions, {}, [className])}>
             <div className={styles.competitions_title__container}>
-                <h2 className={styles.competitions_title}>Новости</h2>
+                <h2 className={styles.competitions_title}>Конкурсы</h2>
             </div>
             <div className={styles.competitions__container}>
                 <div className={styles.competitions_card__container}>

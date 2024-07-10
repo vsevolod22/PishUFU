@@ -1,7 +1,7 @@
 
 import {classNames} from "shared/lib/classNames/classNames";
 import styles from './AreasOfTraining.module.scss'
-import DirectionCard from "widgets/DirectionCard/DirectionCard";
+import DirectionCard from "widgets/DirectionCard/ui/DirectionCard.tsx";
 import medal from 'shared/assets/backgroundImg/medal.png'
 import hat from 'shared/assets/backgroundImg/hat.png'
 import bag from 'shared/assets/backgroundImg/bag.png'

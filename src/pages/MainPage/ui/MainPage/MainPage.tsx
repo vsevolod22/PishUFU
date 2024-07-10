@@ -10,6 +10,10 @@ import AreasOfTraining from "pages/MainPage/ui/AreasOfTraining/AreasOfTraining";
 import Events from "pages/MainPage/ui/ Events/Events";
 import News from "pages/MainPage/ui/News/News";
 import Competitions from "pages/MainPage/ui/Competitions/Competitions";
+import OurSpaces from "pages/MainPage/ui/OurSpaces/OurSpaces";
+import GoToUs from "pages/MainPage/ui/GoToUs/GoToUs";
+import Footer from "widgets/Footer/ui/Footer";
+
 
 
 interface MainPageProps {
@@ -31,6 +35,9 @@ const MainPage = ({className} : MainPageProps) => {
                     <Events/>
                     <News/>
                     <Competitions/>
+                    <OurSpaces/>
+                    <GoToUs/>
+                    <Footer/>
                 </main>
 
            </div>

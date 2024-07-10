@@ -1,5 +1,5 @@
 
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "shared/lib/classNames/classNames.ts";
 import styles from './DirectionCard.module.scss'
 import arrow from 'shared/assets/icons/arrow.svg'
 

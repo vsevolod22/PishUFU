@@ -1,0 +1,44 @@
+.GoToUs {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+    align-items: center;
+    padding-bottom: 115px;
+    position: relative;
+    justify-content: space-evenly;
+}
+.goToUs {
+    &__container {
+        display: flex;
+        justify-content: center;
+
+        position: relative;
+        z-index: 10;
+        width: 100%;
+    }
+    &_title {
+        color: rgb(255, 255, 255);
+        font-family: Furore;
+        font-size: 104px;
+        font-weight: 400;
+        line-height: 120px;
+        letter-spacing: 0%;
+        text-align: left;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        span {
+            color: rgb(122, 231, 56);
+            font-family: Furore;
+            font-size: 104px;
+            font-weight: 400;
+            line-height: 120px;
+            letter-spacing: 0%;
+            text-align: left;
+            text-transform: uppercase;
+        }
+    }
+}
