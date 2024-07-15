@@ -1,8 +1,8 @@
 
-import {classNames} from "shared/lib/classNames/classNames.ts";
+import {classNames} from "shared/lib/classNames/classNames";
 import styles from './DirectionCard.module.scss'
 import arrow from 'shared/assets/icons/arrow.svg'
-
+import link from 'shared/assets/icons/Link.svg'
 interface DirectionCardProps {
     backgroundStyle?: string;
     title: string;
@@ -44,13 +44,58 @@ const DirectionCard = ({backgroundStyle, backgroundImg, backgroundAlt, title, se
                         </thead>
                         <tbody>
                         <tr>
-                            <td>09.03.01</td>
+                            <td>09.03.01 <a href="#"><img src={link} alt="arrow"/></a></td>
                             <td>Программирование и системная интеграция ИТ-решений</td>
 
                         </tr>
                         <tr>
-                            <td>11.03.01</td>
+                            <td>11.03.01 <a href="#"><img src={link} alt="arrow"/></a></td>
                             <td>Цифровые радиотехнические средства связи, локации и защиты информации</td>
+
+                        </tr>
+                        <tr>
+                            <td>11.03.02 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Интеллектуальные инфокоммуникационные системы и технологии</td>
+
+                        </tr>
+                        <tr>
+                            <td>11.03.03 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Электронные средства киберфизических систем</td>
+
+                        </tr>
+                        <tr>
+                            <td>11.03.04 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Электронные приборы и устройства</td>
+
+                        </tr>
+                        <tr>
+                            <td>13.03.02 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Электроэнергетические системы и электрооборудование</td>
+
+                        </tr>
+                        <tr>
+                            <td>15.03.04 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Цифровое управление производственными комплексами</td>
+
+                        </tr>
+                        <tr>
+                            <td>15.03.06 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Интеллектуальные системы в робототехнике</td>
+
+                        </tr>
+                        <tr>
+                            <td>27.03.03 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Системная инженерия интеллектуальных информационных и управляющих систем</td>
+
+                        </tr>
+                        <tr>
+                            <td>27.03.04 <a href="#"><img src={link} alt="arrow"/></a></td>
+                            <td>Управление и искусственный интеллект в технических системах</td>
+
+                        </tr>
+                        <tr>
+                            <td>28.03.02 <a href="#"><img src={link} alt="arrow"/></a>ssssssssssssssssssssssssssssssssssss</td>
+                            <td>Нанотехнологии и наносистемы</td>
 
                         </tr>
 

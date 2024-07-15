@@ -101,9 +101,6 @@ const News = ({className} : NewsProps) => {
                                         ))}
                                     </div>
                             </>
-
-
-
                         </div>
                     ))}
 

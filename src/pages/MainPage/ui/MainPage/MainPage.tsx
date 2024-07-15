@@ -2,7 +2,7 @@
 
 import {classNames} from "shared/lib/classNames/classNames";
 import styles from './MainPage.module.scss'
-import Header from "widgets/Header/ui/Header";
+
 import OurName from "pages/MainPage/ui/OurName/OurName";
 import AboutUs from "pages/MainPage/ui/AboutUs/AboutUs";
 import WhyUs from "pages/MainPage/ui/WhyUs/WhyUs";
@@ -13,6 +13,7 @@ import Competitions from "pages/MainPage/ui/Competitions/Competitions";
 import OurSpaces from "pages/MainPage/ui/OurSpaces/OurSpaces";
 import GoToUs from "pages/MainPage/ui/GoToUs/GoToUs";
 import Footer from "widgets/Footer/ui/Footer";
+import Header from "widgets/Header/ui/Header";
 
 
 
