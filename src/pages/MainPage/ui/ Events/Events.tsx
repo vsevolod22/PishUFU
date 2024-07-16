@@ -24,6 +24,31 @@ const Events = ({ className }: EventsProps) => {
     fetchNews();
     console.log(eventsData);
   }, []);
+  const formatEventDates = (startDate: string, endDate: string) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const startDay = start.getDate();
+    const endDay = end.getDate();
+
+    const months = [
+      "января",
+      "февраля",
+      "марта",
+      "апреля",
+      "мая",
+      "июня",
+      "июля",
+      "августа",
+      "сентября",
+      "октября",
+      "ноября",
+      "декабря",
+    ];
+    const month = months[start.getMonth()]; // Assuming start and end are in the same month
+
+    return `${startDay}-${endDay} ${month}`;
+  };
   return (
     <section className={classNames(styles.Events, {}, [className])} id="events">
       <img className={styles.events__zag} src={zag} alt="декор" />
@@ -48,7 +73,11 @@ const Events = ({ className }: EventsProps) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Участвовать <img src={arrow} alt="стрелка" />
+                    {formatEventDates(
+                      event.attributes.startDate,
+                      event.attributes.endDate
+                    )}{" "}
+                    <img src={arrow} alt="стрелка" />
                   </a>
                 </div>
               </div>
