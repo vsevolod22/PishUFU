@@ -1,97 +1,128 @@
 .Events {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    margin-top: 100px;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 115px;
-    position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 115px;
+  position: relative;
 }
 
 .standLine {
-    border: 1px solid rgb(255, 255, 255);
-    width: 0;
-    height: 190px;
+  border: 1px solid rgb(255, 255, 255);
+  width: 0;
+  height: 190px;
 }
 
-
 .events {
-    &__container {
-        display: flex;
-        justify-content: center;
+  &__container {
+    display: flex;
+    justify-content: center;
 
-        position: relative;
-        z-index: 10;
-        width: 100%;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  &__zag {
+    position: absolute;
+    right: 30%;
+    z-index: 0;
+  }
+  &_title {
+    color: rgb(255, 255, 255);
+    font-family: Furore;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 92px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+
+    &__container {
+      width: 100%;
+      margin-bottom: 80px;
     }
-    &_title {
-        color: rgb(255, 255, 255);
-        font-family: Furore;
-        font-size: 80px;
+  }
+  &_card {
+    width: 325px;
+    margin: 0 25px;
+    min-height: 264px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__container {
+      border-radius: 12px;
+      padding: 50px;
+      /* прорачная карта */
+      box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(15px);
+      /* прозрачная карта */
+      background: linear-gradient(
+        134.85deg,
+        rgb(18, 18, 18) -64.44%,
+        rgba(31, 32, 40, 0) 127.59%,
+        rgba(94, 97, 117, 0) 127.59%
+      );
+      height: 420px;
+      display: flex;
+      align-items: center;
+    }
+    &__title {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-bottom: 25px;
+      height: 58px;
+    }
+    &__descr {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+    &__link {
+      a {
+        color: rgb(32, 225, 100);
+        font-family: Raleway;
+        font-size: 24px;
         font-weight: 400;
-        line-height: 92px;
+        line-height: 28px;
         letter-spacing: 0%;
         text-align: left;
-        text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
 
-        &__container {
-            width: 100%;
-            margin-bottom: 80px;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px; // Высота подчеркивания
+          background-color: green; // Цвет подчеркивания
+          bottom: -2px; // Отступ подчеркивания от текста
+          left: 0;
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          transition: transform 0.3s ease-out;
         }
-    }
-    &_card {
-        width: 325px;
-        margin: 0 25px;
-        min-height: 264px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        &__container {
-            border-radius: 12px;
-            padding: 50px;
-            /* прорачная карта */
-            box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(15px);
-            /* прозрачная карта */
-            background: linear-gradient(134.85deg, rgb(18, 18, 18) -64.44%,rgba(31, 32, 40, 0) 127.59%,rgba(94, 97, 117, 0) 127.59%);
-            height: 420px;
-            display: flex;
-            align-items: center;
-        }
-        &__title {
-            color: rgb(255, 255, 255);
-            font-family: Raleway;
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 28px;
-            letter-spacing: 0%;
-            text-align: left;
-            margin-bottom: 25px;
-            height: 58px;
-        }
-        &__descr {
-            color: rgb(255, 255, 255);
-            font-family: Raleway;
-            font-size: 22px;
-            font-weight: 400;
-            line-height: 26px;
-            letter-spacing: 0%;
-            text-align: left;
-            margin-bottom: 25px;
-        }
-        &__link {
-            color: rgb(32, 225, 100);
-            font-family: Raleway;
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 28px;
-            letter-spacing: 0%;
-            text-align: left;
+      }
 
-            &:hover {
-                cursor: pointer;
-            }
+      &:hover {
+        cursor: pointer;
+
+        a::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
         }
+      }
     }
+  }
 }

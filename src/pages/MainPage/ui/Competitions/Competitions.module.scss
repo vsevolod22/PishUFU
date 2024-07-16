@@ -1,164 +1,194 @@
 .Competitions {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    margin-top: 100px;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 115px;
-    position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 115px;
+  position: relative;
 }
 
-
 .competitions {
-    &_img {
-        &__container {
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-
-                height: 70%;
-            }
-        }
-    }
+  &_img {
     &__container {
-        display: flex;
-        justify-content: center;
-
-        position: relative;
-        z-index: 10;
-        width: 100%;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 70%;
+      }
     }
-    &_btn {
-
-        position: relative; /* Добавлено для использования псевдоэлемента */
-        border: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4.78px;
-        width: 240px;
-        height: 48px;
-        box-shadow: 4.08px 6.12px 20.39px 0px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(7.65px);
-        /* кнопка */
-        background: linear-gradient(179.41deg, rgb(63, 204, 113) 4.013%,rgb(63, 54, 233) 160.587%);
-        overflow: hidden; /* Добавлено для ограничения видимости псевдоэлемента */
-
-
-        &__text {
-            color: rgb(255, 255, 255);
-            font-family: Play;
-            font-size: 24.47px;
-            font-weight: 400;
-            line-height: 28px;
-            text-align: left;
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            //background: rgba(255, 255, 255, 0.1); /* Полупрозрачный черный цвет */
-
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1; /* Псевдоэлемент должен быть ниже текста */
-        }
-
-        &:hover::after {
-            opacity: 0; /* Показать полупрозрачный черный цвет при наведении */
-        }
-        &:hover {
-            background: linear-gradient(0deg,rgb(63, 204, 113)  4.013%,  rgb(63, 54, 233) 160.587%);
-            cursor: pointer;
-        }
-    }
-    &_title {
-        color: rgb(255, 255, 255);
-        font-family: Furore;
-        font-size: 80px;
-        font-weight: 400;
-        line-height: 92px;
-        letter-spacing: 0%;
-        text-align: left;
-        text-transform: uppercase;
-
-        &__container {
-            width: 100%;
-            margin-bottom: 80px;
-        }
-    }
-    &_grid {
-        height: 126px;
-        width: 111%;
-        background: linear-gradient( #bbb, transparent 1.5px), linear-gradient( 90deg, #bbb, transparent 1.5px);
-        background-size: 25px 25px;
+  }
+  &__img {
+    &__zag {
+      &_first {
+        position: absolute;
+        left: 40%;
+        top: 14%;
+      }
+      &_second {
+        position: absolute;
+        bottom: 0%;
+        right: 20%;
+      }
+      &_third {
         position: absolute;
         top: 50%;
-        z-index: 5;
-
+        left: 50px;
+      }
     }
-    &_card {
-        width: 80%;
-        margin: 0 25px 80px 25px;
-        display: flex;
-        justify-content: space-around;
-        border-radius: 12px;
-        position: relative;
-        z-index: 10;
-        /* прорачная карта */
-        box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(3px);
-        /* прозрачная карта */
-        background: linear-gradient(134.85deg, rgb(18, 18, 18) -64.44%, rgba(31, 32, 40, 0) 127.59%, rgba(94, 97, 117, 0) 127.59%);
-        padding: 40px;
-        &__container {
-
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-        }&__title {
-             color: rgb(255, 255, 255);
-             font-family: Raleway;
-             font-size: 32px;
-             font-weight: 600;
-             line-height: 28px;
-             letter-spacing: 0%;
-             text-align: left;
-             margin-bottom: 25px;
-             display: flex;
-             align-items: center;
-             position: relative;
-             &_img {
-                 position: absolute;
-                 right: 0;
-
-                 &:hover {
-                     cursor: pointer;
-                     background-color: rgba(0, 0, 0, 0.3);
-                 }
-             }
-         }
-        &__column {
-            width: 55%;
-        }
-        &__descr {
-            color: rgb(255, 255, 255);
-            font-family: Raleway;
-            font-size: 22px;
-            font-weight: 400;
-            line-height: 26px;
-            letter-spacing: 0%;
-            text-align: left;
-            margin: 30px 0;
-        }
-
+    &_block {
+      position: absolute;
+      right: -230px;
+      bottom: 0px;
     }
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  &_btn {
+    position: relative; /* Добавлено для использования псевдоэлемента */
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4.78px;
+    width: 240px;
+    height: 48px;
+    box-shadow: 4.08px 6.12px 20.39px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7.65px);
+    /* кнопка */
+    background: linear-gradient(
+      179.41deg,
+      rgb(63, 204, 113) 4.013%,
+      rgb(63, 54, 233) 160.587%
+    );
+    overflow: hidden; /* Добавлено для ограничения видимости псевдоэлемента */
+
+    &__text {
+      color: rgb(255, 255, 255);
+      font-family: Play;
+      font-size: 24.47px;
+      font-weight: 400;
+      line-height: 28px;
+      text-align: left;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      //background: rgba(255, 255, 255, 0.1); /* Полупрозрачный черный цвет */
+
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1; /* Псевдоэлемент должен быть ниже текста */
+    }
+
+    &:hover::after {
+      opacity: 0; /* Показать полупрозрачный черный цвет при наведении */
+    }
+    &:hover {
+      background: linear-gradient(
+        0deg,
+        rgb(63, 204, 113) 4.013%,
+        rgb(63, 54, 233) 160.587%
+      );
+      cursor: pointer;
+    }
+  }
+  &_title {
+    color: rgb(255, 255, 255);
+    font-family: Furore;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 92px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+
+    &__container {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+  &_grid {
+    height: 126px;
+    width: 111%;
+    background: linear-gradient(#bbb, transparent 1.5px),
+      linear-gradient(90deg, #bbb, transparent 1.5px);
+    background-size: 25px 25px;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+  }
+  &_card {
+    width: 80%;
+    margin: 0 25px 80px 25px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px;
+    position: relative;
+    z-index: 10;
+    /* прорачная карта */
+    box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3px);
+    /* прозрачная карта */
+    background: linear-gradient(
+      134.85deg,
+      rgb(18, 18, 18) -64.44%,
+      rgba(31, 32, 40, 0) 127.59%,
+      rgba(94, 97, 117, 0) 127.59%
+    );
+    padding: 40px;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__title {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      &_img {
+        position: absolute;
+        right: 0;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+    &__column {
+      width: 55%;
+    }
+    &__descr {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin: 30px 0;
+    }
+  }
 }

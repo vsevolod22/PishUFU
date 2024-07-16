@@ -1,122 +1,148 @@
 .News {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    margin-top: 100px;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 115px;
-    position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 115px;
+  position: relative;
 }
 .expand {
-    max-height: 1500px; /* Установите значение, которое достаточно для содержимого */
-    opacity: 1;
-    transition: max-height 1.5s ease-out, opacity 1s ease-out;
-
+  max-height: 1500px; /* Установите значение, которое достаточно для содержимого */
+  opacity: 1;
+  transition: max-height 1.5s ease-out, opacity 1s ease-out;
 }
 
 .collapse {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.8s ease-out, opacity .5s ease-in;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease-out, opacity 0.5s ease-in;
 }
 .standLine {
-    border: 1px solid rgb(255, 255, 255);
-    width: 100%;
-    height: 0;
+  border: 1px solid rgb(255, 255, 255);
+  width: 100%;
+  height: 0;
 }
 
 .news {
-    &__container {
-        display: flex;
-        justify-content: center;
+  &__container {
+    display: flex;
+    justify-content: center;
 
-        position: relative;
-        z-index: 10;
-        width: 100%;
-    }
-
-    &_title {
-        color: rgb(255, 255, 255);
-        font-family: Furore;
-        font-size: 80px;
-        font-weight: 400;
-        line-height: 92px;
-        letter-spacing: 0%;
-        text-align: left;
-        text-transform: uppercase;
-
-        &__container {
-            width: 100%;
-            margin-bottom: 80px;
-        }
-    }
-    &_grid {
-        height: 126px;
-        width: 111%;
-        background: linear-gradient( #bbb, transparent 1.5px), linear-gradient( 90deg, #bbb, transparent 1.5px);
-        background-size: 25px 25px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  &__img {
+    &__zag {
+      &_first {
         position: absolute;
-        top: 50%;
-        z-index: 5;
-
+        right: 10%;
+        top: 30%;
+      }
+      &_second {
+        position: absolute;
+        left: 10%;
+        bottom: 30%;
+      }
     }
-    &_card {
-        width: 1100px;
-        margin: 0 25px 80px 25px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 12px;
-        position: relative;
-        z-index: 10;
-        /* прорачная карта */
-        box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(3px);
-        /* прозрачная карта */
-        background: linear-gradient(134.85deg, rgb(18, 18, 18) -64.44%, rgba(31, 32, 40, 0) 127.59%, rgba(94, 97, 117, 0) 127.59%);
-        padding: 40px;
-        padding-bottom: 8px;
-        &__container {
+    &__block {
+      &_first {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      &_second {
+        position: absolute;
+        right: 20%;
+        top: -10%;
+      }
+    }
+  }
+  &_title {
+    color: rgb(255, 255, 255);
+    font-family: Furore;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 92px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
 
+    &__container {
+      width: 100%;
+      margin-bottom: 80px;
+    }
+  }
+  &_grid {
+    height: 126px;
+    width: 111%;
+    background: linear-gradient(#bbb, transparent 1.5px),
+      linear-gradient(90deg, #bbb, transparent 1.5px);
+    background-size: 25px 25px;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+  }
+  &_card {
+    width: 1100px;
+    margin: 0 25px 80px 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    position: relative;
+    z-index: 10;
+    /* прорачная карта */
+    box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3px);
+    /* прозрачная карта */
+    background: linear-gradient(
+      134.85deg,
+      rgb(18, 18, 18) -64.44%,
+      rgba(31, 32, 40, 0) 127.59%,
+      rgba(94, 97, 117, 0) 127.59%
+    );
+    padding: 40px;
+    padding-bottom: 8px;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__title {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 28px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      position: relative;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+      &_img {
+        position: absolute;
+        right: 0;
 
-        }&__title {
-             color: rgb(255, 255, 255);
-             font-family: Raleway;
-             font-size: 32px;
-             font-weight: 600;
-             line-height: 28px;
-             letter-spacing: 0%;
-             text-align: left;
-             margin-bottom: 25px;
-             display: flex;
-             align-items: center;
-             position: relative;
-
-             &_img {
-                 position: absolute;
-                 right: 0;
-
-                 &:hover {
-                     cursor: pointer;
-                     background-color: rgba(0, 0, 0, 0.3);
-                 }
-             }
-         }
-        &__descr {
-            color: rgb(255, 255, 255);
-            font-family: Raleway;
-            font-size: 22px;
-            font-weight: 400;
-            line-height: 26px;
-            letter-spacing: 0%;
-            text-align: left;
-            margin-top: 30px;
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.3);
         }
-
+      }
     }
+    &__descr {
+      color: rgb(255, 255, 255);
+      font-family: Raleway;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0%;
+      text-align: left;
+      margin-top: 30px;
+    }
+  }
 }
