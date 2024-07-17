@@ -1,130 +1,154 @@
 .DirectionCard {
-    position: relative;
-    border-radius: 12px;
-    margin-right: 20px;
-    box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3px);
-    background: linear-gradient(134.85deg, rgb(18, 18, 18) -62.914%,rgba(31, 32, 40, 0) 128.943%,rgba(94, 97, 117, 0) 128.943%);
-    transition: all 1s ease;
+  position: relative;
+  border-radius: 12px;
+  margin-right: 20px;
+  box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  background: linear-gradient(
+    134.85deg,
+    rgb(18, 18, 18) -62.914%,
+    rgba(31, 32, 40, 0) 128.943%,
+    rgba(94, 97, 117, 0) 128.943%
+  );
+  overflow: hidden;
+  transition: max-height 1s ease-in-out, opacity 1s ease-in, width 1.3s ease;
 }
+
+.DirectionCard.expanded {
+  opacity: 1;
+}
+
 .line {
-    border: 1px solid rgb(255, 255, 255);
-    width: 100%;
-    margin-top: 70px;
+  border: 1px solid rgb(255, 255, 255);
+  width: 100%;
+  margin-top: 70px;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.opacity {
+  opacity: 1 !important;
 }
 
 .table {
-
-
-    width: 90%;
-    margin: 20px 50px;
-
-    border-collapse: collapse;
-
-    &__title {
-        color: rgb(255, 255, 255);
-        font-family: Raleway;
-        font-size: 30px;
-        font-weight: 200;
-        line-height: 35px;
-        letter-spacing: 0%;
-        text-align: left;
-        margin: 20px 0;
-
-    }
-
-    th {
-        padding: 5px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-top: none;
-        color: rgb(255, 255, 255);
-        font-family: Raleway;
-        font-size: 22px;
-        font-weight: 600;
-        line-height: 26px;
-        letter-spacing: 0%;
-        text-align: left;
-    }
-
-    td {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 5px;
-        color: rgb(255, 255, 255);
-        font-family: Raleway;
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 26px;
-        letter-spacing: 0%;
-        text-align: left;
-    }
-
-    tr {
-        td {
-            position: relative;
-            height: 80px;
-            a {
-                position: absolute;
-                right: 30px;
-            }
-        }
-        td:first-child, th:first-child {
-            border-left: none;
-        }
-
-        td:last-child, th:last-child {
-            border-right: none;
-        }
-        td:first-child {
-            width: 25%;
-        }
-    }
+  width: 90%;
+  margin: 20px 50px;
+  border-collapse: collapse;
+  transition: opacity 1s ease-in;
+  opacity: 0;
 }
 
+.table__title {
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  font-size: 30px;
+  font-weight: 200;
+  line-height: 35px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin: 20px 0;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
 
-.directionCard {
-    &__container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        position: relative;
-        width: 300px;
-        height: 40px;
-    }
-    &_arrow__rotate {
-        transform: rotate(60deg);
-    }
-    &__title {
-        color: rgb(255, 255, 255);
-        font-family: Raleway;
-        font-size: 32px;
-        font-weight: 600;
-        line-height: 38px;
-        text-align: left;
-    }
+th {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: none;
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0%;
+  text-align: left;
+}
 
-    &__link {
-        color: rgb(255, 255, 255);
-        font-family: Raleway;
-        font-size: 18px;
-        font-weight: 200;
-        line-height: 28px;
-        text-align: left;
-        position: absolute;
-        cursor: pointer;
-        right: 0;
-        bottom: -45px;
+td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0%;
+  text-align: left;
+}
 
-        &_open {
-            color: rgb(32, 225, 100);
-            font-family: Raleway;
-            font-size: 18px;
-            font-weight: 200;
-            line-height: 28px;
-            text-align: left;
-            position: absolute;
-            cursor: pointer;
-            right: 0;
-            bottom: -45px;
-        }
-    }
+tr td {
+  position: relative;
+  height: 80px;
+}
+
+tr td a {
+  position: absolute;
+  right: 30px;
+}
+
+tr td:first-child,
+tr th:first-child {
+  border-left: none;
+}
+
+tr td:last-child,
+tr th:last-child {
+  border-right: none;
+}
+
+tr td:first-child {
+  width: 25%;
+}
+
+.directionCard__container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  width: 300px;
+  height: 40px;
+}
+
+.directionCard__arrow__rotate {
+  transform: rotate(60deg);
+}
+
+.directionCard__title {
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 38px;
+  text-align: left;
+}
+
+.directionCard__link {
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 28px;
+  text-align: left;
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: -45px;
+}
+
+.directionCard__link_open {
+  color: rgb(32, 225, 100);
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 28px;
+  text-align: left;
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: -45px;
+}
+
+.directionCard__content {
+  overflow: hidden;
+  transition: max-height 1s ease-in, opacity 1s ease-in;
 }

@@ -59,8 +59,10 @@ const Events = ({ className }: EventsProps) => {
       <div className={styles.events__container}>
         <div className={styles.events_card__container}>
           {eventsData?.data.map((event) => (
-            <>
-              <div key={event.id} className={styles.events_card}>
+            <div key={event.id}>
+              {" "}
+              {/* Обернул все элементы в один div с уникальным ключом */}
+              <div className={styles.events_card}>
                 <div className={styles.events_card__title}>
                   {event.attributes.title}
                 </div>
@@ -81,8 +83,8 @@ const Events = ({ className }: EventsProps) => {
                   </a>
                 </div>
               </div>
-              <div key={event.id} className={styles.standLine}></div>
-            </>
+              <div className={styles.standLine}></div>
+            </div>
           ))}
         </div>
       </div>

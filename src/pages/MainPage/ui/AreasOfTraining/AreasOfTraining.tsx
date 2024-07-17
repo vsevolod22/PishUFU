@@ -23,6 +23,7 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
     styles.directionCard__pos,
   ]);
   const [programsData, setProgramsData] = useState<IGetPrograms | null>(null);
+
   useEffect(() => {
     const fetchPrograms = async () => {
       const api = new HttpApiMethods();
@@ -72,6 +73,7 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
       ]);
     }
   }, [titleButton]);
+
   return (
     <section
       className={classNames(styles.AreasOfTraining, {}, [className])}

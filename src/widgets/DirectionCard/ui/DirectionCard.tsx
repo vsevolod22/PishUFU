@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import styles from "./DirectionCard.module.scss";
 import arrow from "shared/assets/icons/arrow.svg";
@@ -25,7 +26,39 @@ const DirectionCard = ({
   cardClassName,
   directionData,
 }: DirectionCardProps) => {
-  // Разделяем специальности на две группы
+  const [expanded, setExpanded] = useState(false);
+  const [isCollapsing, setIsCollapsing] = useState(false);
+  const [maxHeight, setMaxHeight] = useState("0px");
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardClassName?.includes("cardStyle")) {
+      setExpanded(true);
+    } else {
+      setExpanded(false);
+    }
+  }, [cardClassName]);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setMaxHeight(`${contentRef.current.scrollHeight}px`);
+    }
+  }, [expanded, contentRef]);
+
+  const toggleExpand = () => {
+    if (expanded) {
+      setIsCollapsing(true);
+      setTimeout(() => {
+        setExpanded(false);
+        setIsCollapsing(false);
+        setTitleButton("");
+      }, 1000); // Задержка должна совпадать с длительностью transition
+    } else {
+      setExpanded(true);
+      setTitleButton(title);
+    }
+  };
+
   const allSpecialties = directionData?.attributes?.specialties?.data || [];
   const targetedSpecialties = allSpecialties.filter((specialty) =>
     specialty.attributes.depCode.startsWith("11.04")
@@ -37,198 +70,191 @@ const DirectionCard = ({
   return (
     <div
       style={CardDisplay}
-      className={classNames(styles.DirectionCard, {}, [
-        cardClassName,
-        styles.directionCard__pos,
-      ])}
+      className={classNames(
+        styles.DirectionCard,
+        {
+          [styles.expanded]: expanded && !isCollapsing,
+          [styles.collapsing]: isCollapsing,
+        },
+        [cardClassName, styles.directionCard__pos]
+      )}
     >
-      {cardClassName?.includes("cardStyle") ? (
-        <>
-          <img
-            className={classNames(styles.directionCard__img, {}, [
-              backgroundStyle,
-            ])}
-            src={backgroundImg}
-            alt={backgroundAlt}
-          />
-          <div className={styles.directionCard__container}>
-            <div className={styles.directionCard__title}>{title}</div>
-            <div
-              onClick={() => setTitleButton("")}
-              className={styles.directionCard__link_open}
-            >
+      <img
+        className={classNames(styles.directionCard__img, {}, [backgroundStyle])}
+        src={backgroundImg}
+        alt={backgroundAlt}
+      />
+      <div className={styles.directionCard__container}>
+        <div className={styles.directionCard__title}>{title}</div>
+        <div
+          onClick={toggleExpand}
+          className={
+            expanded && !isCollapsing
+              ? styles.directionCard__link_open
+              : styles.directionCard__link
+          }
+        >
+          {expanded && !isCollapsing ? (
+            <>
               Скрыть{" "}
               <img
                 className={styles.directionCard_arrow__rotate}
                 src={arrow}
                 alt="стрелка"
               />
-            </div>
-          </div>
-          <div className={styles.line}></div>
-
-          {directionData.attributes.Name === "Целевое направление" ? (
-            <>
-              {otherSpecialties.length > 0 && (
-                <>
-                  <div className={styles.table__title}>
-                    Образовательные программы (бакалавриат, форма обучения -
-                    очная)
-                  </div>
-                  <table className={styles.table}>
-                    <thead>
-                      <tr>
-                        <th>Код специальности</th>
-                        <th>Наименование</th>
-                        <th>Партнёр</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {otherSpecialties.map((specialty) => (
-                        <tr key={specialty.id}>
-                          <td>
-                            {specialty.attributes.depCode}{" "}
-                            <a
-                              href={specialty.attributes.depLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <img src={link} alt="arrow" />
-                            </a>
-                          </td>
-                          <td>{specialty.attributes.depName}</td>
-                          <td>{specialty.attributes.partner || "N/A"}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </>
-              )}
-              {targetedSpecialties.length > 0 && (
-                <>
-                  <div className={styles.table__title}>
-                    Образовательные программы (магистратура, форма обучения -
-                    очная)
-                  </div>
-                  <table className={styles.table}>
-                    <thead>
-                      <tr>
-                        <th>Код специальности</th>
-                        <th>Наименование</th>
-                        <th>Партнёр</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {targetedSpecialties.map((specialty) => (
-                        <tr key={specialty.id}>
-                          <td>
-                            {specialty.attributes.depCode}{" "}
-                            <a
-                              href={specialty.attributes.depLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <img src={link} alt="arrow" />
-                            </a>
-                          </td>
-                          <td>{specialty.attributes.depName}</td>
-                          <td>{specialty.attributes.partner || "N/A"}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </>
-              )}
             </>
           ) : (
             <>
-              <div className={styles.table__title}>
-                Образовательные программы
-              </div>
-              <table className={styles.table}>
-                <thead>
-                  <tr>
-                    <th>Код специальности</th>
-                    <th>Наименование</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allSpecialties.map((specialty) => (
-                    <tr key={specialty.id}>
-                      <td>
-                        {specialty.attributes.depCode}{" "}
-                        <a
-                          href={specialty.attributes.depLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img src={link} alt="arrow" />
-                        </a>
-                      </td>
-                      <td>{specialty.attributes.depName}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              Подробнее <img src={arrow} alt="стрелка" />
             </>
           )}
-        </>
-      ) : (
-        <>
-          <img
-            className={classNames(styles.directionCard__img, {}, [
-              backgroundStyle,
-            ])}
-            src={backgroundImg}
-            alt={backgroundAlt}
-          />
-          <div className={styles.directionCard__container}>
-            <div className={styles.directionCard__title}>{title}</div>
+        </div>
+      </div>
+      <div
+        ref={contentRef}
+        className={styles.directionCard__content}
+        style={{
+          maxHeight: expanded && !isCollapsing ? maxHeight : "0px",
+          opacity: expanded && !isCollapsing ? 1 : 0,
+        }}
+      >
+        <div
+          className={`${styles.line} ${
+            expanded && !isCollapsing ? styles.opacity : ""
+          }`}
+        ></div>
+        {directionData.attributes.Name === "Целевое направление" ? (
+          <>
+            {otherSpecialties.length > 0 && (
+              <>
+                <div
+                  className={`${styles.table__title} ${
+                    expanded && !isCollapsing ? styles.opacity : ""
+                  }`}
+                >
+                  Образовательные программы (бакалавриат, форма обучения -
+                  очная)
+                </div>
+                <table
+                  className={`${styles.table} ${
+                    expanded && !isCollapsing ? styles.opacity : ""
+                  }`}
+                >
+                  <thead>
+                    <tr>
+                      <th>Код специальности</th>
+                      <th>Наименование</th>
+                      <th>Партнёр</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {otherSpecialties.map((specialty) => (
+                      <tr key={specialty.id}>
+                        <td>
+                          {specialty.attributes.depCode}{" "}
+                          <a
+                            href={specialty.attributes.depLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img src={link} alt="arrow" />
+                          </a>
+                        </td>
+                        <td>{specialty.attributes.depName}</td>
+                        <td>{specialty.attributes.partner || "N/A"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+            {targetedSpecialties.length > 0 && (
+              <>
+                <div
+                  className={`${styles.table__title} ${
+                    expanded && !isCollapsing ? styles.opacity : ""
+                  }`}
+                >
+                  Образовательные программы (магистратура, форма обучения -
+                  очная)
+                </div>
+                <table
+                  className={`${styles.table} ${
+                    expanded && !isCollapsing ? styles.opacity : ""
+                  }`}
+                >
+                  <thead>
+                    <tr>
+                      <th>Код специальности</th>
+                      <th>Наименование</th>
+                      <th>Партнёр</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {targetedSpecialties.map((specialty) => (
+                      <tr key={specialty.id}>
+                        <td>
+                          {specialty.attributes.depCode}{" "}
+                          <a
+                            href={specialty.attributes.depLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img src={link} alt="arrow" />
+                          </a>
+                        </td>
+                        <td>{specialty.attributes.depName}</td>
+                        <td>{specialty.attributes.partner || "N/A"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+          </>
+        ) : (
+          <>
             <div
-              onClick={() => setTitleButton(title)}
-              className={styles.directionCard__link}
+              className={`${styles.table__title} ${
+                expanded && !isCollapsing ? styles.opacity : ""
+              }`}
             >
-              Подробнее <img src={arrow} alt="стрелка" />
+              Образовательные программы
             </div>
-          </div>
-        </>
-      )}
+            <table
+              className={`${styles.table} ${
+                expanded && !isCollapsing ? styles.opacity : ""
+              }`}
+            >
+              <thead>
+                <tr>
+                  <th>Код специальности</th>
+                  <th>Наименование</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allSpecialties.map((specialty) => (
+                  <tr key={specialty.id}>
+                    <td>
+                      {specialty.attributes.depCode}{" "}
+                      <a
+                        href={specialty.attributes.depLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={link} alt="arrow" />
+                      </a>
+                    </td>
+                    <td>{specialty.attributes.depName}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        )}
+      </div>
     </div>
   );
 };
 
 export default DirectionCard;
-
-// Пример данных, которые могут быть переданы в компонент
-const exampleDirectionData = {
-  id: 1,
-  attributes: {
-    Name: "Целевое направление",
-    specialties: {
-      data: [
-        {
-          id: 1,
-          attributes: {
-            depCode: "09.03.01",
-            depLink: "https://sfedu.ru/op/9",
-            depName: "Программирование и системная интеграция ИТ-решений",
-            partner: 'АО "ТНИИС"',
-          },
-        },
-        {
-          id: 2,
-          attributes: {
-            depCode: "11.04.01",
-            depLink: "https://sfedu.ru/op/111",
-            depName:
-              "Цифровые радиотехнические средства связи, локации и защиты информации",
-            partner:
-              'ПАО "Таганрогский авиационный научно-технический комлекс им. Г.М. Бериева"',
-          },
-        },
-      ],
-    },
-  },
-};
-
-// Использование компон
