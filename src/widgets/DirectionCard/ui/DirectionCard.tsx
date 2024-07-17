@@ -123,7 +123,9 @@ const DirectionCard = ({
             expanded && !isCollapsing ? styles.opacity : ""
           }`}
         ></div>
-        {directionData.attributes.Name === "Целевое направление" ? (
+        {directionData &&
+        directionData.attributes &&
+        directionData.attributes.Name === "Целевое направление" ? (
           <>
             {otherSpecialties.length > 0 && (
               <>
