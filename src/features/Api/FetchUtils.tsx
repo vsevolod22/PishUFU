@@ -6,7 +6,7 @@ export class HttpApiMethods {
   // Конструктор класса, где вы устанавливаете значение токена
 
   // URL`s
-  APIURL = "http://127.0.0.1:1337/api";
+  APIURL = "http://77.91.84.181:1337/api";
   API_KEY = localStorage.getItem("token");
 
   GetEvents = async (): Promise<IGetEvents | null> => {
