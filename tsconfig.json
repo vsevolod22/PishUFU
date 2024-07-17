@@ -32,7 +32,8 @@
       "fonts/*": ["src/app/fonts/*"],
       "@Footer/*": ["src/widgets/Footer/*"],
       "@features/*": ["src/features/*"],
-      "@Api/*": ["src/features/Api/*"]
+      "@Api/*": ["src/features/Api/*"],
+      "@Sceleton/*": ["src/widgets/Sceleton/*"]
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js

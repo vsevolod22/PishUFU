@@ -13,9 +13,6 @@
   border: 1px solid rgb(255, 255, 255);
   width: 0;
   height: 190px;
-  &:nth-last-child(1) {
-    display: none;
-  }
 }
 
 .events {
@@ -70,6 +67,16 @@
       height: 420px;
       display: flex;
       align-items: center;
+      &_line {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &:nth-last-child(1) {
+          .standLine {
+            display: none;
+          }
+        }
+      }
     }
     &__title {
       color: rgb(255, 255, 255);

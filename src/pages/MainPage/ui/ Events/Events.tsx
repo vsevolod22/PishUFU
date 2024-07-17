@@ -59,7 +59,7 @@ const Events = ({ className }: EventsProps) => {
       <div className={styles.events__container}>
         <div className={styles.events_card__container}>
           {eventsData?.data.map((event) => (
-            <div key={event.id}>
+            <div className={styles.events_card__container_line} key={event.id}>
               {" "}
               {/* Обернул все элементы в один div с уникальным ключом */}
               <div className={styles.events_card}>
