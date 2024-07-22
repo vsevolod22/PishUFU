@@ -4,6 +4,7 @@ import DirectionCard from "widgets/DirectionCard/ui/DirectionCard";
 import medal from "shared/assets/backgroundImg/medal.png";
 import hat from "shared/assets/backgroundImg/hat.png";
 import bag from "shared/assets/backgroundImg/bag.png";
+import asp from "shared/assets/backgroundImg/asp.png";
 import { HttpApiMethods } from "features/Api/FetchUtils";
 import { IGetPrograms } from "features/Api/types";
 import { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
   const [firstCardDisplay, setFirstCardDisplay] = useState({});
   const [secondCardDisplay, setSecondCardDisplay] = useState({});
   const [thirdCardDisplay, setThirdCardDisplay] = useState({});
+  const [fourthCardDisplay, setFourthCardDisplay] = useState({});
   const [cardClassName, SetcardClassName] = useState([
     styles.directionCard__pos,
     styles.directionCard__pos,
@@ -41,23 +43,39 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
     if (titleButton === "Бакалавриат") {
       setSecondCardDisplay({ display: "none" });
       setThirdCardDisplay({ display: "none" });
+      setFourthCardDisplay({ display: "none" });
       SetcardClassName([
         styles.cardStyle,
+        styles.directionCard__pos,
         styles.directionCard__pos,
         styles.directionCard__pos,
       ]);
     } else if (titleButton === "Магистратура") {
       setFirstCardDisplay({ display: "none" });
       setThirdCardDisplay({ display: "none" });
+      setFourthCardDisplay({ display: "none" });
       SetcardClassName([
         styles.directionCard__pos,
         styles.cardStyle,
+        styles.directionCard__pos,
         styles.directionCard__pos,
       ]);
     } else if (titleButton === "Целевые места") {
       setFirstCardDisplay({ display: "none" });
       setSecondCardDisplay({ display: "none" });
+      setFourthCardDisplay({ display: "none" });
       SetcardClassName([
+        styles.directionCard__pos,
+        styles.directionCard__pos,
+        styles.cardStyle,
+        styles.directionCard__pos,
+      ]);
+    } else if (titleButton === "Аспирантура") {
+      setFirstCardDisplay({ display: "none" });
+      setSecondCardDisplay({ display: "none" });
+      setThirdCardDisplay({ display: "none" });
+      SetcardClassName([
+        styles.directionCard__pos,
         styles.directionCard__pos,
         styles.directionCard__pos,
         styles.cardStyle,
@@ -66,7 +84,9 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
       setFirstCardDisplay({ display: "flex", flexDirection: "column" });
       setSecondCardDisplay({ display: "flex", flexDirection: "column" });
       setThirdCardDisplay({ display: "flex", flexDirection: "column" });
+      setFourthCardDisplay({ display: "flex", flexDirection: "column" });
       SetcardClassName([
+        styles.directionCard__pos,
         styles.directionCard__pos,
         styles.directionCard__pos,
         styles.directionCard__pos,
@@ -112,6 +132,16 @@ const AreasOfTraining = ({ className }: AreasOfTrainingProps) => {
           backgroundImg={bag}
           backgroundAlt={"bag"}
           directionData={programsData ? programsData.data[2] : null}
+        />
+        <DirectionCard
+          cardClassName={cardClassName[3]}
+          CardDisplay={fourthCardDisplay}
+          setTitleButton={setTitleButton}
+          backgroundStyle={styles.asp}
+          title={"Аспирантура"}
+          backgroundImg={asp}
+          backgroundAlt={"Аспирантура"}
+          directionData={programsData ? programsData.data[3] : null}
         />
       </div>
       <div className={styles.areasOfTraining_grid}></div>

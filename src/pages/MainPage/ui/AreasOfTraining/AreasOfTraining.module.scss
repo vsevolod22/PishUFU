@@ -14,7 +14,7 @@
   align-items: center;
   max-height: 230px;
   min-height: 230px;
-  width: 405px;
+  width: 515px;
 }
 .cardStyle {
   width: 100%;
@@ -26,7 +26,11 @@
   left: 0;
   top: 0;
 }
-
+.asp {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .bag {
   position: absolute;
   left: 0;
@@ -56,6 +60,9 @@
     position: relative;
     z-index: 10;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 100px; /* Добавляем отступы между карточками */
+    row-gap: 40px;
   }
   &_title {
     color: rgb(255, 255, 255);
@@ -71,5 +78,19 @@
       width: 100%;
       margin-bottom: 80px;
     }
+  }
+}
+
+.directionCard__pos:nth-child(2n + 1) {
+  clear: both; /* Очищаем обтекание у каждой второй карточки */
+}
+@media (max-width: 1280px) {
+  .areasOfTraining {
+    &__container {
+      gap: 30px;
+    }
+  }
+  .directionCard__pos {
+    width: 490px;
   }
 }

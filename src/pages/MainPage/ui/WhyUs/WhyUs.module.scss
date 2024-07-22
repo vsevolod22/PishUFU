@@ -99,3 +99,19 @@
     }
   }
 }
+
+@media (max-width: 1450px) {
+  .whyUs {
+    &_descr {
+      &__text {
+        font-size: 38px;
+        line-height: 42px;
+      }
+      &__zag {
+        &_first {
+          right: 120px;
+        }
+      }
+    }
+  }
+}

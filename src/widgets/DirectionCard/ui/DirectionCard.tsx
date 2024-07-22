@@ -80,6 +80,7 @@ const DirectionCard = ({
       )}
     >
       <img
+        style={expanded ? { right: "0", left: "auto", top: "0" } : null}
         className={classNames(styles.directionCard__img, {}, [backgroundStyle])}
         src={backgroundImg}
         alt={backgroundAlt}

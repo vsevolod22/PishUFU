@@ -146,3 +146,11 @@
     }
   }
 }
+
+@media (max-width: 1450px) {
+  .news {
+    &_card {
+      width: 920px;
+    }
+  }
+}

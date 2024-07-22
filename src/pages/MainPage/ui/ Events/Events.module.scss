@@ -136,3 +136,21 @@
     }
   }
 }
+@media (max-width: 1450px) {
+  .events {
+    &__zag {
+      right: 15%;
+    }
+    &_card {
+      width: 275px;
+      margin: 0 20px;
+      &__title {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+      &__descr {
+        font-size: 18px;
+      }
+    }
+  }
+}

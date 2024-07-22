@@ -1,7 +1,7 @@
 .DirectionCard {
   position: relative;
   border-radius: 12px;
-  margin-right: 20px;
+
   box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(3px);
   background: linear-gradient(
@@ -151,4 +151,7 @@ tr td:first-child {
 .directionCard__content {
   overflow: hidden;
   transition: max-height 1s ease-in, opacity 1s ease-in;
+}
+
+@media (max-width: 1280px) {
 }

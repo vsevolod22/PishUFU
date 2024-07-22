@@ -192,3 +192,14 @@
     }
   }
 }
+
+@media (max-width: 1450px) {
+  .competitions {
+    &_card {
+      width: 90%;
+    }
+  }
+  .Competitions {
+    padding-bottom: 40px;
+  }
+}

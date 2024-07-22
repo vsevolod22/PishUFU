@@ -131,3 +131,58 @@
     }
   }
 }
+
+@media (max-width: 1950px) {
+  .ourSpaces {
+    &_card {
+      &_img {
+        &__big {
+          margin-right: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      &_switch {
+        &__container {
+          font-size: 26px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1450px) {
+  .OurSpaces {
+    padding-bottom: 0px;
+  }
+  .ourSpaces {
+    &_card {
+      width: 85%;
+      justify-content: space-evenly;
+      &_img {
+        &__container {
+          flex-direction: column;
+        }
+        &__big {
+          width: 540px;
+          margin-right: 0;
+        }
+        &__small {
+          flex-direction: row;
+          margin-top: 15px;
+          img {
+            width: 265px;
+          }
+        }
+      }
+      &_switch {
+        &__container {
+          font-size: 24px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}
